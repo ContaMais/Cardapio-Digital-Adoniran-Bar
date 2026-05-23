@@ -1,0 +1,99 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding-bottom: 50px;
+}
+
+.header-topo {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(to bottom, rgba(16, 185, 129, 0.1), transparent);
+}
+
+.header-topo h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.header-topo p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+#container-cardapio {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Estilo do Título do Grupo */
+.grupo-titulo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 30px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+/* Estilo do Cartão do Produto */
+.produto-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.produto-foto {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.produto-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.produto-nome {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.produto-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.produto-preco {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--primary);
+}
