@@ -117,6 +117,7 @@ function renderizarCardapio() {
                     : '';
 
                 // A JANELINHA DO PRODUTO (Fina e escura)
+                // A JANELINHA DO PRODUTO (Fina e escura adaptada para a nova classe)
                 html += `
                     <div class="produto-card">
                         ${fotoHTML}

@@ -1,11 +1,11 @@
 :root {
-    /* Paleta de cores escura do Adminiran */
-    --bg-color: #0c0e12; /* Fundo bem escuro */
-    --card-bg: #16191f; /* Fundo dos cartões (sutilmente mais claro) */
-    --text-main: #e2e8f0; /* Texto claro */
-    --text-muted: #94a3b8; /* Texto secundário */
-    --primary: #10b981; /* Verde esmeralda das ações */
-    --border-subtle: rgba(255, 255, 255, 0.05); /* Linhas finas */
+    /* Paleta de cores oficial do Adminiran */
+    --primary: #b72929;        
+    --bg-body: #280606;        
+    --card-bg: rgba(20, 3, 3, 0.95); 
+    --text-main: #fbeee3;      
+    --text-muted: rgba(251, 238, 227, 0.6); /* Versão sutil do bege para descrições */
+    --border-subtle: rgba(251, 238, 227, 0.1);
 }
 
 * {
@@ -16,7 +16,7 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: var(--bg-body);
     color: var(--text-main);
     padding-bottom: 30px;
     -webkit-font-smoothing: antialiased;
@@ -25,20 +25,20 @@ body {
 /* BARRA DE TOPO GROSSA */
 .header-topo {
     width: 100%;
-    height: 90px; /* Grossa */
-    background: var(--card-bg);
+    height: 90px;
+    background: #1a0404; /* Mesma cor ultra escura da sidebar do Admin */
     display: flex;
-    justify-content: center; /* Centraliza a logo horizontalmente */
-    align-items: center; /* Centraliza a logo verticalmente */
+    justify-content: center;
+    align-items: center;
     border-bottom: 1px solid var(--border-subtle);
     margin-bottom: 20px;
-    position: sticky; /* Fica fixa no topo ao rolar */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo-topo {
-    height: 60px; /* Tamanho da logo SVG dentro da barra */
+    height: 60px;
     width: auto;
 }
 
@@ -49,14 +49,14 @@ body {
     padding: 0 15px;
 }
 
-/* JANELA quadrada DO GRUPO (Cartão Principal) */
+/* JANELA QUADRADA DO GRUPO (Modo Dark Glass) */
 .grupo-container {
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* TÍTULO DO GRUPO (Com ícone) */
@@ -64,27 +64,27 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 12px; /* Espaço para a linha fina */
-    border-bottom: 1px solid var(--border-subtle); /* A LINHA FINA ABAIXO DO TÍTULO */
-    margin-bottom: 15px; /* Espaço para o primeiro produto */
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-subtle); /* Linha fina abaixo do título */
+    margin-bottom: 15px;
 }
 
 .grupo-header i {
     font-size: 1.6rem;
-    color: var(--primary); /* Ícone Verde */
+    color: var(--primary); /* Ícones agora em Vermelho Primary */
 }
 
 .grupo-titulo-texto {
     font-size: 1.4rem;
-    font-weight: 800; /* Bold */
-    color: white;
+    font-weight: 800;
+    color: var(--text-main);
 }
 
 /* CONTAINER PARA LISTAR PRODUTOS */
 .produtos-lista {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaço entre as janelinhas de produtos */
+    gap: 10px;
 }
 
 /* JANELINHA DO PRODUTO (Estilo compactado para mobile) */
@@ -92,15 +92,15 @@ body {
     display: flex;
     gap: 12px;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.03); /* Levemente mais claro que o fundo do grupo */
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    background: rgba(255, 255, 255, 0.02); /* Sutil contraste dentro do card glass */
+    border-radius: 10px;
+    border: 1px solid rgba(251, 238, 227, 0.03);
 }
 
 .produto-foto {
     width: 70px;
     height: 70px;
-    border-radius: 6px;
+    border-radius: 8px;
     object-fit: cover;
     border: 1px solid var(--border-subtle);
 }
@@ -115,6 +115,7 @@ body {
 .produto-nome {
     font-size: 1rem;
     font-weight: 700;
+    color: var(--text-main);
     margin-bottom: 3px;
 }
 
@@ -127,6 +128,6 @@ body {
 
 .produto-preco {
     font-size: 1rem;
-    font-weight: 900;
-    color: var(--primary); /* Preço verde */
+    font-weight: 800;
+    color: var(--text-main); /* Preço limpo em bege, combinando com o minimalismo dark */
 }
