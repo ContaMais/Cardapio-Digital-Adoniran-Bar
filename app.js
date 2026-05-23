@@ -83,7 +83,13 @@ function renderizarCardapio() {
     let html = '';
 
     // Organiza os grupos em ordem alfabética
-    chavesGrupos.sort((a,b) => grupos[a].nome.localeCompare(grupos[b].nome)).forEach(gk => {
+    // Organiza os grupos pela ORDEM (peso numérico) em vez de ordem alfabética
+    chavesGrupos.sort((a,b) => {
+        let ordemA = grupos[a].ordem || 0;
+        let ordemB = grupos[b].ordem || 0;
+        if (ordemA === ordemB) return grupos[a].nome.localeCompare(grupos[b].nome);
+        return ordemA - ordemB;
+    }).forEach(gk => {
         const grupo = grupos[gk];
         
         // Pega os itens desse grupo
