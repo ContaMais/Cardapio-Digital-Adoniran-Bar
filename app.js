@@ -114,7 +114,13 @@ function renderizarCardapio() {
             `;
 
             // Organiza os itens do grupo em ordem alfabética
-            itensDoGrupo.sort((a,b) => itens[a].nome.localeCompare(itens[b].nome)).forEach(ik => {
+            // Organiza os itens pela ORDEM (peso numérico) em vez de ordem alfabética
+            itensDoGrupo.sort((a,b) => {
+                let ordemA = itens[a].ordem || 0;
+                let ordemB = itens[b].ordem || 0;
+                if(ordemA === ordemB) return itens[a].nome.localeCompare(itens[b].nome);
+                return ordemA - ordemB;
+            }).forEach(ik => {
                 const item = itens[ik];
                 
                 // Trata a imagem (Se não tiver foto, não mostra o espaço vazio)
