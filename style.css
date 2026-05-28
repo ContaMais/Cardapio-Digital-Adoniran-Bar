@@ -131,3 +131,97 @@ body {
     font-weight: 800;
     color: var(--text-main); /* Preço limpo em bege, combinando com o minimalismo dark */
 }
+
+/* ==========================================
+   TELA DE DETALHE DO PRODUTO (FULLSCREEN)
+   ========================================== */
+#tela-detalhe-produto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-body); /* Fundo Vinho Escuro */
+    z-index: 2000;
+    overflow-y: auto;
+    flex-direction: column;
+    animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.btn-voltar-detalhe {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(20, 3, 3, 0.7); /* Fundo Dark Glass */
+    color: var(--text-main);
+    border: 1px solid var(--border-subtle);
+    padding: 10px 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    z-index: 2010;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+#detalhe-foto-container {
+    width: 100%;
+    height: 50vh; /* A foto ocupa metade da tela do celular */
+    background: var(--card-bg);
+    position: relative;
+}
+
+.detalhe-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* O degradê que faz a foto sumir no fundo escuro suavemente */
+.foto-overlay-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-body) 100%);
+}
+
+.detalhe-conteudo {
+    padding: 25px 20px;
+    flex: 1;
+    margin-top: -20px; /* Sobe um pouquinho para invadir o degradê */
+    position: relative;
+    z-index: 10;
+}
+
+#detalhe-nome {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+#detalhe-preco {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--primary); /* Vermelho Adoniran */
+    margin-bottom: 20px;
+}
+
+#detalhe-desc {
+    font-size: 1.05rem;
+    color: rgba(251, 238, 227, 0.8); /* Bege um pouco mais transparente */
+    line-height: 1.6;
+}

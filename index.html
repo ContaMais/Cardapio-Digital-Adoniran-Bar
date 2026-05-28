@@ -37,7 +37,20 @@
         const db = firebase.database();
         const auth = firebase.auth();
     </script>
-
+<div id="tela-detalhe-produto" style="display: none;">
+        <button class="btn-voltar-detalhe" onclick="fecharDetalheProduto()">
+            <i class="ph ph-caret-left"></i> Voltar
+        </button>
+        
+        <div id="detalhe-foto-container">
+            </div>
+        
+        <div class="detalhe-conteudo">
+            <h1 id="detalhe-nome">Nome do Produto</h1>
+            <h2 id="detalhe-preco">R$ 0,00</h2>
+            <p id="detalhe-desc">Descrição completa do item vai aqui.</p>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

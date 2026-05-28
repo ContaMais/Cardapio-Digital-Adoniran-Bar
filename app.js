@@ -131,7 +131,7 @@ function renderizarCardapio() {
                 // A JANELINHA DO PRODUTO (Fina e escura)
                 // A JANELINHA DO PRODUTO (Fina e escura adaptada para a nova classe)
                 html += `
-                    <div class="produto-card">
+                    <div class="produto-card" onclick="abrirDetalheProduto('${ik}')" style="cursor: pointer;">
                         ${fotoHTML}
                         <div class="produto-info">
                             <div>
@@ -151,4 +151,49 @@ function renderizarCardapio() {
     });
 
     container.innerHTML = html;
+}
+
+// ==========================================
+// TELA DE DETALHE DO PRODUTO
+// ==========================================
+function abrirDetalheProduto(ik) {
+    const item = itens[ik];
+    if(!item) return;
+
+    // 1. Configura a Foto (Se não tiver, coloca um espaço vazio elegante)
+    const fotoContainer = document.getElementById('detalhe-foto-container');
+    if (item.foto) {
+        fotoContainer.innerHTML = `
+            <img src="${item.foto}" class="detalhe-foto" alt="${item.nome}">
+            <div class="foto-overlay-gradient"></div>
+        `;
+    } else {
+        fotoContainer.innerHTML = `
+            <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+                <i class="ph ph-image" style="font-size: 5rem; color: rgba(251, 238, 227, 0.1);"></i>
+            </div>
+            <div class="foto-overlay-gradient"></div>
+        `;
+    }
+
+    // 2. Preenche os textos
+    document.getElementById('detalhe-nome').innerText = item.nome;
+    document.getElementById('detalhe-preco').innerText = `R$ ${Number(item.preco).toFixed(2).replace('.', ',')}`;
+    document.getElementById('detalhe-desc').innerText = item.descricao ? item.descricao : "Sem descrição adicional.";
+
+    // 3. Oculta o cardápio e mostra a nova tela (Dá a sensação de navegação)
+    document.querySelector('.header-topo').style.display = 'none';
+    document.getElementById('container-cardapio').style.display = 'none';
+    
+    document.getElementById('tela-detalhe-produto').style.display = 'flex';
+    window.scrollTo(0, 0);
+}
+
+function fecharDetalheProduto() {
+    // Esconde a tela de detalhes
+    document.getElementById('tela-detalhe-produto').style.display = 'none';
+    
+    // Devolve o cardápio para a tela
+    document.querySelector('.header-topo').style.display = 'flex';
+    document.getElementById('container-cardapio').style.display = 'block';
 }
